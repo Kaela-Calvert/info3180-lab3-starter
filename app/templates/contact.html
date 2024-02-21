@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% block main %}
+    <h2>Contact Us</h2>
+    <p>Fill in this form to contact the site owners.</p>
+    <form method="POST">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-control") }}<br>
+            {% for error in form.name.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.email.label }}<br>
+            {{ form.email(class="form-control") }}<br>
+            {% for error in form.email.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.subject.label }}<br>
+            {{ form.subject(class="form-control") }}<br>
+            {% for error in form.subject.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.message.label }}<br>
+            {{ form.message(class="form-control") }}<br>
+            {% for error in form.message.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        <div>
+            <button type="sned">Send</button>
+        </div>
+    </form>
+{% endblock %}
